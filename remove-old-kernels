@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# List and remove old kernels from `/boot`
+# @author: kim.erik@boost.ai
+#
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
+echo "## K!Ms > old / unused Linux-kernel removal script"
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
+# Only list installed kernels:
+echo; echo "Currently installed kernel(s):";
+dpkg --list | grep -i -E --color 'linux-image|linux-kernel|linux-modules' | grep --color '^ii'
+# Currently running version
+v="$(uname -r | awk -F '-virtual' '{ print $1}')"
+echo; echo "Currently running kernel: $v"; echo;
+# Currently loaded kernel modules
+echo "Currently loaded kernel-modules (via DKMS):"
+dkms status
+# List which packages NOT to delete
+i="linux-headers-virtual|linux-image-virtual|linux-headers-generic-hwe-|linux-image-generic-hwe-|linux-headers-${v}|linux-image-$(uname -r)|linux-image-generic|linux-headers-generic|linux-modules-${v}|linux-modules-extra-${v}"
+echo; echo "Keep following kernel packages:"; echo "$i"; echo;
+# List of kernels to actually REMOVE
+r=$(dpkg --list | egrep -i 'linux-image|linux-headers|linux-modules' | awk '/ii/{ print $2}' | egrep -v "$i" | wc -l)
+if [ $r -gt 0 ]; then
+   echo "Removing following kernel packages:"
+   dpkg --list | egrep -i 'linux-image|linux-headers|linux-modules' | awk '/ii/{ print $2}' | egrep -v "$i"
+else
+   echo "No packages to be removed."; echo;
+fi
+# REMOVE (with sudo)
+if [ $r -gt 0 ]; then
+   sudo apt-get -y -q --purge remove $(dpkg --list | egrep -i 'linux-image|linux-headers|linux-modules' | awk '/ii/{ print $2}' | egrep -v "$i") && \
+   echo "Unused kernel-packages removed successfully."
+else
+   echo "Exiting."; exit 1;
+fi
