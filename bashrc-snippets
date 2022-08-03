@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # function to set terminal title
 function set-title(){
   if [[ -z "$ORIG" ]]; then
