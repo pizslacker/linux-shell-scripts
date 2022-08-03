@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Flood Ping (ICMP echo flood)
+#
+echo && echo "WARNING! This script is intended for testing-purposes ONLY!" && \
+echo "Any other use will be considered malicious behaviour." && \
+echo;
+if [ ! -z "$1" ]; then
+    ping -f -i 0.5 -v "$1";
+    exit 0;
+else
+    echo && echo "Please supply a hostname or IP address to flood... " && echo;
+    exit 1;
+fi
