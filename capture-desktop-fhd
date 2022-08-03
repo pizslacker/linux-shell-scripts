@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Requires `ffmpeg` to capture the desktop to a video-container.
+if [ -x $(which ffmpeg) ]; then
+# This is my personal grab-command, it starts at screen :0.0 and offsets by x 1080 and y 200.
+# If you need offsetting, just add '+' and the coordinates.
+#    ffmpeg -video_size 2560x1600 -framerate 25 -f x11grab -i :0.0+1080,200 -f pulse -ac 2 -i default "${HOME}"/"capture-output-$$.mkv";
+    ffmpeg -video_size 2560x1600 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i default "${HOME}"/"capture-output-$$.mkv";
+    exit 0;
+else
+    echo "You need ffmpeg to use this script!" && sleep 3;
+    echo && echo -n "Install ffmpeg? (yes/no) " && read install_ffmpeg;
+    if [ "$install_ffmpeg" ==  "yes" ]; then
+        sudo apt-get -y -q install ffmpeg;
+    fi
+    exit 1;
+fi
