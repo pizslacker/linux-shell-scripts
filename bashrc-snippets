@@ -1,0 +1,11 @@
+# function to set terminal title
+function set-title(){
+  if [[ -z "$ORIG" ]]; then
+    ORIG="$PS1"
+  fi
+  TITLE="\[\e]2;$*\a\]"
+  PS1="${ORIG}${TITLE}"
+}
+
+# Generate random password, takes char-length input on $1
+randpw(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16};echo;}
