@@ -4,8 +4,8 @@
 if [ -x $(which ffmpeg) ]; then
 # This is my personal grab-command, it starts at screen :0.0 and offsets by x 1080 and y 200.
 # If you need offsetting, just add '+' and the coordinates.
-#    ffmpeg -video_size 2560x1600 -framerate 25 -f x11grab -i :0.0+1080,200 -f pulse -ac 2 -i default "${HOME}"/"capture-output-$$.mkv";
-    ffmpeg -video_size 2560x1600 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i default "${HOME}"/"capture-output-$$.mkv";
+#    ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0+1080,200 -f pulse -ac 2 -i default "${HOME}"/"capture-output-$$.mkv";
+    ffmpeg -video_size 3840x2160 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i default "${HOME}"/"capture-output-$$.mkv";
     exit 0;
 else
     echo "You need ffmpeg to use this script!" && sleep 3;
