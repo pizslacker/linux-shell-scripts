@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
 # List and remove old kernels from `/boot`
-# @author: kim.erik@boost.ai
 #
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
 echo "## K!Ms > old / unused Linux-kernel removal script"
