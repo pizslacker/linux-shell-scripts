@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+#
+# Bash array creation, use and prints.
+#
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
+echo "Bash array example use and printouts:";
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
+echo;
+# Indexed array, separated values
+declare -a array_1
+array_1[1]=value_1
+array_1[2]=value_2
+array_1[3]=value_n
+## Print all values
+echo "Two values from \`array_1\`: "${array_1[1]}", "${array_1[3]}; echo;
+
+# Numeric array, separated by whitespace
+declare -a array_2
+array_2=( element_1 element_2 element_N )
+## Print one value from array_2
+echo "One value from \`array_2\`: "${array_2[1]}; echo;
+
+# Associative array, *must* be declared before use
+declare -A array_3
+array_3[0]=value_foo
+array_3[1]=value_bar
+array_3[2]=value_xyz
+## Array Loop, print all values by iterating
+echo "All values from \`array_3\` (iterative): "
+for i in "${array_3[@]}"
+do 
+  echo "$i"
+done
+echo;
+
+# Associative array, different syntax.
+# These arrays always start at index 0.
+declare -A array_4
+array_4=( 
+  [0]=value_foo 
+  [1]=value_bar 
+  [2]=value_xyz 
+)
+# Length of the array
+length=${#array_4[@]}
+## Array Loop
+echo "All index-numbers + values from \`array_4\` (iterative): "
+for (( i=0; i < ${length}; i++ ))
+do
+  echo $i ${array_4[$i]}
+done
+echo;
+
+# Declare array, and add new elements to it
+declare -a array_5=( "Hydrogen" "Helium" "Lithium" "Beryllium" )
+## add new elements
+array_5+=( Cobalt Nickel )
+## print all elements
+echo "All values (plus added) from \`array_5\`: "
+echo "${array_5[@]}"; echo;
+
+# Create array, and remove element
+declare -a array_6=( "Hydrogen" "Helium" "Lithium" "Beryllium" )
+## remove element
+unset array_6[2]
+## print all (remaining) elements
+echo "All values (minus removed) from \`array_6\`: "
+echo "${array_6[@]}"; echo;
+
+Footer
