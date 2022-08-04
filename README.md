@@ -6,7 +6,7 @@
   * [`bash-auto-ssh-agent`](bash-auto-ssh-agent): bashrc config-lines for auto-start of ssh-agent
   * [`bash-getopts`](bash-getopts): bash getopts -> CLI execution
   * [`bashrc-snippets`](bashrc-snippets): random bashrc snippets I use
-  * [`capture-desktop`](capture-desktop): CLI script to capture desktop in .mkv video-container file
+  * [`capture-desktop-fhd`](capture-desktop-fhd): CLI script to capture desktop in .mkv video-container file
   * [`floodping`](floodping): CLI script for ping-flooding (ICMP Echo)
   * [`ilk`](ilk): CLI script for 'dpkg' listing of installed Linux kernels
   * [`killzombies`](killzombies): Kill zombie processes hanging around
