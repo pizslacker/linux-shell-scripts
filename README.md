@@ -10,6 +10,5 @@
   * [`floodping`](floodping): CLI script for ping-flooding (ICMP Echo)
   * [`ilk`](ilk): CLI script for 'dpkg' listing of installed Linux kernels
   * [`kill-zombies`](kill-zombies): Kill zombie processes hanging around
-  * [`nstat`](nstat): Various CLI scripts for netstat
   * [`remove-old-kernels`](remove-old-kernels): Removes old / unsued Linux kernels
   * [`slowloris`](slowloris): CLI script for slowhttptest
