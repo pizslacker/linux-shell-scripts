@@ -2,7 +2,7 @@
 
 ### Linux specific shell scripts to help mundane tasks
 
-  * [`auto-bash-ssh-agent`](auto-bash-ssh-agent): bashrc config-lines for auto-start of ssh-agent
+  * [`bash-auto-ssh-agent`](bash-auto-ssh-agent): bashrc config-lines for auto-start of ssh-agent
   * [`bash-arrays`](bash-arrays): bashr arrays creation, use and prints
   * [`bash-getopts`](bash-getopts): bash getopts -> CLI execution
   * [`bashrc-snippets`](bashrc-snippets): random bashrc snippets I use
