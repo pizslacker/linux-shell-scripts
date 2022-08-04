@@ -2,8 +2,8 @@
 
 ### Linux specific shell scripts to help mundane tasks
 
-  * [`bash-auto-ssh-agent`](bash-auto-ssh-agent): bashrc config-lines for auto-start of ssh-agent
   * [`bash-arrays`](bash-arrays): bashr arrays creation, use and prints
+  * [`bash-auto-ssh-agent`](bash-auto-ssh-agent): bashrc config-lines for auto-start of ssh-agent
   * [`bash-getopts`](bash-getopts): bash getopts -> CLI execution
   * [`bashrc-snippets`](bashrc-snippets): random bashrc snippets I use
   * [`capture-desktop`](capture-desktop): CLI script to capture desktop in .mkv video-container file
