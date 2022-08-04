@@ -9,7 +9,7 @@
   * [`capture-desktop-fhd`](capture-desktop-fhd): CLI script to capture desktop in .mkv video-container file
   * [`floodping`](floodping): CLI script for ping-flooding (ICMP Echo)
   * [`ilk`](ilk): CLI script for 'dpkg' listing of installed Linux kernels
-  * [`killzombies`](killzombies): Kill zombie processes hanging around
+  * [`kill-zombies`](kill-zombies): Kill zombie processes hanging around
   * [`nstat`](nstat): Various CLI scripts for netstat
   * [`remove-old-kernels`](remove-old-kernels): Removes old / unsued Linux kernels
   * [`slowloris`](slowloris): CLI script for slowhttptest
