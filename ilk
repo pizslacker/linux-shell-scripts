@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 # Find installed Linux kernels (often on a separate partition on /boot)
-sudo dpkg -l | grep 'linux-image' | grep 'ii  '
+echo "Installed kernels:"
+dpkg --list | egrep -i 'linux-image|linux-headers|linux-modules' | awk '/ii/{ print $2}' | egrep -v "$i"
 echo; echo "Currently running kernel:"
 echo "$(uname -a)"
