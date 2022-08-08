@@ -36,8 +36,9 @@ else
 fi
 # REMOVE (with sudo)
 if [ $r -gt 0 ]; then
-   sudo apt-get -y -q --purge remove $(dpkg --list | egrep -i 'linux-image|linux-headers|linux-modules' | awk '/ii/{ print $2}' | egrep -v "$i") && \
-   echo "Unused kernel-packages removed successfully."
+   sudo apt-get -y -q --purge remove $(dpkg --list | egrep -i 'linux-image|linux-headers|linux-modules' | awk '/ii/{ print $2}' | egrep -v "$i"); \
+   echo "$r unused kernel-packages removed successfully."
 else
-   echo "Exiting."; exit 1;
+   echo "No packages to be removed."; echo;
+   echo "Exiting.";
 fi
