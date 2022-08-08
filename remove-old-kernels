@@ -2,6 +2,15 @@
 #
 # List and remove old kernels from `/boot`
 #
+# ### Run after `apt-get upgrade` ###
+#
+# sudo touch /etc/apt/apt.conf.d/80upgradehook
+# sudo chmod +x /etc/apt/apt.conf.d/80upgradehook
+# sudo vi /etc/apt/apt.conf.d/80upgradehook
+#
+# Paste this line in the file:
+# `DPkg::Post-Invoke {"/usr/local/bin/remove-old-kernels";};`
+#
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
 echo "## K!Ms > old / unused Linux-kernel removal script"
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' '#'
